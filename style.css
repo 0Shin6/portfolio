@@ -28,7 +28,7 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0; padding: 0 16px;
   color: var(--main-color);
-  background: linear-gradient(-45deg, #b000e1, #340067, #6400ac, #8400ff);
+  background: linear-gradient(-45deg, #ae0fda, #3e007c, #6c00b9, #911bff);
   background-size: 400% 400%;
   animation: gradient 12s ease infinite;
   display: flex; flex-direction: column; align-items: center;
@@ -58,13 +58,8 @@ header, section, footer, .navbar-container {
   text-decoration: none;
 }
 
-.project:hover, .skill:hover, .contact-list a:hover, .cv-box:hover {
+.project:hover, .contact-list a:hover, .cv-box:hover {
   background: var(--bg-hover);
-  transform: scale(1.05);
-}
-.etape:hover {
-  background: var(--bg-hover);
-  transform: translateX(5px);
 }
 
 h2 {
@@ -74,7 +69,6 @@ h2 {
   overflow: hidden;
 }
 h2::after {
-  content: "_"; 
   position: absolute; 
   right: 0; 
   animation: cursor 1s infinite;
@@ -240,6 +234,12 @@ section[id] {
   padding: 16px; 
   text-align: center; 
 }
+.soft-skill {
+  padding: 16px;
+  font-weight: bold; 
+  font-size: 14px;
+  display: inline-block;
+}
 .skill img {
   width: 50px; 
   height: 50px; 
@@ -302,16 +302,16 @@ section[id] {
 }
 
 .cv-box {
-
-  border: 2px dashed var(--main-color); 
   padding: 32px;
-  display: flex; align-items: center; 
+  display: flex; 
+  align-items: center; 
   justify-content: center; 
   text-align: center;
 
 }
 .cv-box:hover {
-  border-style: solid; 
+  background-color: var(--bg-hover);
+  transform: scale(1.05);
 }
 .cv-content h3 {
   margin: 10px 0 5px; 
@@ -324,17 +324,12 @@ section[id] {
   font-size: 14px; 
   color: var(--text-light); 
 }
-.cv-content img {
-  width: 60px; 
-  height: 60px; 
-  margin-bottom: 10px; 
-  filter: drop-shadow(0 0 5px var(--main-color)); 
-}
 
 footer {
   background: rgba(50, 0, 70, 0.7); text-align: center; 
   padding: 16px;
-  color: var(--text-light); margin-top: 32px;
+  color: var(--text-light); 
+  margin-top: 32px;
 }
 
 .reveal {
@@ -343,7 +338,8 @@ footer {
   transition: all 0.8s ease; 
 }
 .reveal.active {
-  opacity: 1; transform: translateY(0); 
+  opacity: 1; 
+  transform: translateY(0); 
 }
 
 @media screen and (max-width: 768px) {
@@ -364,7 +360,7 @@ footer {
   .nav-links {
     position: absolute; 
     top: 60px; 
-    right: -200px; 
+    right: -300px; 
     width: 200px;
     background: rgba(50, 0, 70, 0.9); 
     flex-direction: column; 
