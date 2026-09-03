@@ -4,33 +4,39 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio - Mathis GRANIER</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <nav class="navbar">
-    <div class="logo">Pσrtfσliσ</div>
     <ul class="nav-links" id="navLinks">
-      <li><a href="#about">À propos</a></li>
+      <li><a href="#about">Qui suis-je ?</a></li>
       <li><a href="#parcours">Parcours</a></li>
       <li><a href="#skills">Compétences</a></li>
       <li><a href="#projects">Projets</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
+    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Activer le thème clair">&#9788;</button>
     <div class="burger" id="burger">&#9776;</div>
   </nav>
 
   <header class="reveal active">
-    <p>Bienvenue sur le portfolio de :</p>
-    <img src="img/pdp.jpg" alt="Photo de profil">
-    <h1>Mathis GRANIER</h1>
+    <h1>Bienvenue sur mon portfolio</h1>
   </header>
 
   <section id="about" class="reveal">
     <h2>À propos</h2>
-    <p>Bonjour, je m'appelle Mathis et je suis étudiant en 2ᵉ année de BUT Informatique. Passionné par les nouvelles technologies et l’évolution constante du numérique, j’aime comprendre, expérimenter et maîtriser les innovations pour concevoir des solutions accessibles et utiles à tous.</p>
-    <p>Je suis à l'aise en développement logiciel, administration réseaux ainsi qu'en Front-end et back-end. J'aime concevoir des solutions concrètes, de la création de bots Discord interactifs à l'administration d'infrastructures virtuelles. Avec mes connaissances en bases de données et des outils de déploiement comme Docker, me permet de réaliser les projets numériques dans leur globalité.</p>
-    <p>En dehors du code, je suis passionné de sport (cyclisme, course, musculation, football) et de musique, deux univers qui nourrissent ma créativité et renforcent ma persévérance dans chaque projet que j’entreprends.</p>
+    <div class="about-content">
+      <div class="about-text">
+        <p>Bonjour, je m'appelle Mathis et je suis étudiant en 2ᵉ année de BUT Informatique. Passionné par les nouvelles technologies et l’évolution constante du numérique, j’aime comprendre, expérimenter et maîtriser les innovations pour concevoir des solutions accessibles et utiles à tous.</p>
+        <p>Je suis à l'aise en développement logiciel, administration réseaux ainsi qu'en Front-end et back-end. J'aime concevoir des solutions concrètes, de la création de bots Discord interactifs à l'administration d'infrastructures virtuelles. Avec mes connaissances en bases de données et des outils de déploiement comme Docker, me permet de réaliser les projets numériques dans leur globalité.</p>
+        <p>En dehors du code, je suis passionné de sport (cyclisme, course, musculation, football) et de musique, deux univers qui nourrissent ma créativité et renforcent ma persévérance dans chaque projet que j’entreprends.</p>
+      </div>
+      <img class="about-image" src="img/pdp.jpg" alt="Photo de Mathis GRANIER">
+    </div>
   </section>
 
   <section id="parcours" class="reveal">

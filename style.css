@@ -1,9 +1,11 @@
 :root {
-  --main-color: rgb(243, 208, 255);
+  --main-color: #f6e7ff;
   --bg-dark: rgba(113, 0, 151, 0.3);
   --bg-hover: rgba(150, 0, 200, 0.6);
   --text-color: #f19fff;
   --text-light: #ebb8ff;
+  --background-color: #31004b;
+  --navbar-color: rgba(40, 0, 61, 0.6);
   --max-w: 1200px;
 }
 
@@ -25,13 +27,18 @@ html {
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Geist', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0; padding: 0 16px;
   color: var(--main-color);
-  background: linear-gradient(-45deg, #ae0fda, #3e007c, #6c00b9, #911bff);
-  background-size: 400% 400%;
-  animation: gradient 12s ease infinite;
+  background: var(--background-color);
   display: flex; flex-direction: column; align-items: center;
+}
+
+body.light-theme {
+  --background-color: #f6e7ff;
+  --main-color: #31004b;
+  --text-light: #5e2875;
+  --navbar-color: rgba(246, 231, 255, 0.8);
 }
 
 @keyframes gradient {
@@ -51,15 +58,13 @@ header, section, footer, .navbar-container {
 }
 
 .etape, .project, .skill, .contact-list a, .cv-box {
-  background: var(--bg-dark);
   color: var(--main-color);
-  border-radius: 12px;
-  transition: transform 0.2s, background 0.3s;
+  transition: transform 0.2s;
   text-decoration: none;
 }
 
 .project:hover, .contact-list a:hover, .cv-box:hover {
-  background: var(--bg-hover);
+  color: var(--text-light);
 }
 
 h2 {
@@ -86,15 +91,14 @@ h2::after {
 .navbar {
   position: fixed;
   top: 0;
-  left: 0; 
-  width: 100%;
-  background: rgba(50, 0, 70, 0.7);
+  left: 15px;
+  width: calc(100% - 30px);
+  background: transparent;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  padding: 15px 30px; 
+  padding: 14px 0;
   z-index: 1000;
-  backdrop-filter: blur(10px);
   box-sizing: border-box;
 }
 .navbar-container {
@@ -111,9 +115,14 @@ h2::after {
 .nav-links {
   list-style: none; 
   display: flex;
-  gap: 24px; 
+  justify-content: center;
+  gap: 64px;
   margin: 0; 
-  padding: 0; 
+  padding: 21px 40px;
+  background: var(--navbar-color);
+  border: 1px solid rgba(214, 66, 255, 0.35);
+  border-radius: 999px;
+  backdrop-filter: blur(10px);
 }
 .nav-links a {
   text-decoration: none; 
@@ -124,40 +133,97 @@ h2::after {
 .nav-links a:hover {
   color: var(--text-light); 
 }
+.theme-toggle,
 .burger {
-  display: none; 
+  color: var(--main-color);
+  cursor: pointer;
+}
+.theme-toggle {
+  position: absolute;
+  right: 0;
+  width: 72px;
+  height: 72px;
+  border: 1px solid rgba(214, 66, 255, 0.35);
+  border-radius: 50%;
+  background: var(--navbar-color);
+  font-size: 42px;
+  line-height: 1;
+  backdrop-filter: blur(10px);
+}
+.burger {
+  display: none;
   font-size: 32px; 
-  cursor: pointer; 
-  color: var(--main-color); 
 }
 
 header {
+  position: relative;
   text-align: center; 
-  padding: 80px 32px 32px; 
-  margin: 80px auto 32px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 10px; 
-  backdrop-filter: blur(13px);
+  padding: 0 32px 80px;
+  margin: 100px;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  backdrop-filter: none;
+}
+header p {
+  margin: 0 0 28px;
+  font-size: 28px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+header h1 {
+  margin: 50px;
+  font-size: 54px;
+  line-height: 1.1;
+}
+header::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: 100vw;
+  bottom: -82px;
+  height: 140px;
+  border-top: 2px solid rgba(232, 191, 255, 0.8);
+  border-radius: 50% 50% 0 0;
+  box-shadow: 0 -10px 24px -12px rgba(214, 66, 255, 0.75);
+  transform: translateX(-50%);
+  pointer-events: none;
 }
 header img {
-  width: 120px; 
-  height: 120px; 
+  width: 210px;
+  height: 210px;
   object-fit: cover;
   border-radius: 50%; 
   border: 2px solid var(--main-color); 
-  margin-bottom: 16px;
+  margin-bottom: 72px;
 }
 
 
 section {
   padding: 32px; 
   margin: 32px auto; 
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(6px); 
-  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+#about {
+  position: relative;
+  z-index: 1;
+}
+.about-content {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 320px);
+  align-items: center;
+  gap: 64px;
+}
+.about-text p:first-child {
+  margin-top: 0;
+}
+.about-text p:last-child {
+  margin-bottom: 0;
+}
+.about-image {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 18px;
 }
 section[id] {
   scroll-margin-top: 80px; 
@@ -185,18 +251,13 @@ section[id] {
   }
 .timeline-date {
   position: absolute; left: -25px; top: 0; z-index: 2;
-  background: #d642ff; 
-  color: #fff; 
+  color: var(--text-light);
   font-weight: bold;
-  padding: 5px 12px; 
-  border-radius: 20px; 
   font-size: 14px;
-  box-shadow: 0 0 10px var(--bg-hover);
 }
 
 .etape {
-  padding: 24px; 
-  border: 1px solid rgba(220, 113, 255, 0.2); 
+  padding: 24px 0;
 }
 .etape h3 {
   margin: 0 0 8px 0; 
@@ -211,9 +272,6 @@ section[id] {
 .etape img {
   width: 60px; height: 60px; 
   object-fit: contain; 
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.1); 
-  padding: 5px; 
   margin-left: 16px;
 }
 
@@ -326,7 +384,6 @@ section[id] {
 
 }
 .cv-box:hover {
-  background-color: var(--bg-hover);
   transform: scale(1.05);
 }
 .cv-content h3 {
@@ -342,7 +399,7 @@ section[id] {
 }
 
 footer {
-  background: rgba(50, 0, 70, 0.7); text-align: center; 
+  text-align: center;
   padding: 16px;
   color: var(--text-light); 
   margin-top: 32px;
@@ -365,9 +422,17 @@ footer {
   header {
     margin-top: 70px; 
   }
+  header p {
+    font-size: 22px;
+    white-space: normal;
+  }
+  header h1 {
+    font-size: 38px;
+  }
   header img {
     width: 90px; 
     height: 90px; 
+    margin-bottom: 32px;
   }
 
   .burger {
@@ -378,11 +443,17 @@ footer {
     top: 60px; 
     right: -300px; 
     width: 200px;
-    background: rgba(50, 0, 70, 0.9); 
+    background: var(--navbar-color);
     flex-direction: column; 
     padding: 16px; 
     transition: right 0.3s ease;
 
+  }
+  .theme-toggle {
+    right: 56px;
+    width: 48px;
+    height: 48px;
+    font-size: 30px;
   }
   .nav-links.active {
     right: 0; 
@@ -390,6 +461,14 @@ footer {
 
   .timeline, .timeline-item {
     padding-left: 16px; 
+  }
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .about-image {
+    max-width: 280px;
+    justify-self: center;
   }
   .timeline-line {
     left: 10px; 
