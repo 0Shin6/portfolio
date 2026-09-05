@@ -206,12 +206,26 @@ section {
 #about {
   position: relative;
   z-index: 1;
+  width: 100%;
+  max-width: 1500px;
+  padding-top: 0;
+}
+#about h2 {
+  border-bottom: 0;
+  margin: 0 0 22px;
+  padding: 0 32px;
 }
 .about-content {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(220px, 320px);
+  grid-template-columns: minmax(0, 1fr) 334px;
   align-items: center;
-  gap: 64px;
+  gap: 40px;
+}
+.about-text {
+  padding: 34px 60px;
+  background: rgba(113, 0, 151, 0.22);
+  border: 1px solid rgba(214, 66, 255, 0.35);
+  border-radius: 35px;
 }
 .about-text p:first-child {
   margin-top: 0;
@@ -223,7 +237,7 @@ section {
   width: 100%;
   aspect-ratio: 1;
   object-fit: cover;
-  border-radius: 18px;
+  border-radius: 16px;
 }
 section[id] {
   scroll-margin-top: 80px; 
@@ -466,6 +480,10 @@ footer {
     grid-template-columns: 1fr;
     gap: 32px;
   }
+  #about h2 {
+    padding: 0 16px;
+  }
+  
   .about-image {
     max-width: 280px;
     justify-self: center;
