@@ -89,18 +89,22 @@
 
     <!-- Projets -->
     <section id="projects" class="reveal">
-      <h2>Mes Projets</h2>
+      <h2>Mes projets</h2>
       <div class="projects">
         <a
           v-for="project in projects"
           :key="project.title"
           :href="project.url"
           target="_blank"
-          class="project"
+          class="project-card"
         >
-          <h3>{{ project.title }}</h3>
-          <p>{{ project.description }}</p>
-          <p class="project-skills">{{ project.skills }}</p>
+          <img :src="'/' + project.image" :alt="project.title" class="project-img">
+          <div 
+            class="project-btn" 
+            :style="{ '--grad-start': project.gradient[0], '--grad-end': project.gradient[1] }"
+          >
+            {{ project.label }}
+          </div>
         </a>
       </div>
     </section>
@@ -243,12 +247,12 @@ const currentSkills = computed(() => {
 });
 
 const projects = [
-  { title: 'RobyBot', description: 'Bot Discord en python avec une base de donnée sqlite pour le serveur Robynet', skills: 'Python, Discord API, SQLite, Resolution de problèmes, soif d\'apprendre, VScode', url: 'https://github.com/0Shin6/roleby.git' },
-  { title: 'Team Sens', description: 'Site officiel en HTML, CSS et JS + bot discord en python pour sa gestion avec une base de données sqlite', skills: 'HTML, CSS, JavaScript, Python, SQLite', url: 'https://github.com/0Shin6/Team-sens' },
-  { title: 'Administration réseau', description: "Création et administration d'un réseau virtuel en IPv4 sur Katharà", skills: "Réseau, Katharà, Travail d'équipe, Rigueur, Terminal", url: 'https://github.com/0Shin6/S2.03.git' },
-  { title: 'Mon Portfolio', description: 'Site web personnel En HTML, CSS et JS', skills: 'HTML, CSS, JavaScript, Autodidacte', url: 'https://github.com/0Shin6/portfolio.git' },
-  { title: 'Uniliste', description: "Application web de gestion des absences à l'IUT en vueJS, Rust et MongoDB", skills: "VueJS, Rust, MongoDB,Travail d'équipe, Communication,soif d'apprendre, Figma, VScode", url: 'https://github.com/0Shin6/soundPulse' },
-  { title: 'Flame', description: 'Application mobile de to-do list', skills: "Kotlin, Android Studio, Figma, Soif d'apprendre, Autodidacte", url: 'https://github.com/0Shin6/Flame.git²N' }
+  { title: 'Conscientia', label: 'Découvrir conscientia →', image: 'img/card_conscientia.svg', url: '#', gradient: ['#4B5ABE', '#26328D'] },
+  { title: 'LowSens', label: 'Découvrir LowSens →', image: 'img/card_lowsens.svg', url: 'https://github.com/0Shin6/Team-sens', gradient: ['#8318FE', '#5100AE'] },
+  { title: 'Appogix', label: 'Découvrir Appogix →', image: 'img/card_appogix.svg', url: '#', gradient: ['#B8860B', '#DAA520'] },
+  { title: 'Uniliste', label: 'Découvrir Uniliste →', image: 'img/card_uniliste.svg', url: 'https://github.com/0Shin6/soundPulse', gradient: ['#FF0000', '#8B0000'] },
+  { title: 'Flame', label: 'Découvrir Flame →', image: 'img/card_flame.svg', url: 'https://github.com/0Shin6/Flame.git²N', gradient: ['#B736FD', '#8203C6'] },
+  { title: 'USSD', label: 'Découvrir USSD →', image: 'img/card_ussd.svg', url: '#', gradient: ['#8B0000', '#550000'] }
 ];
 
 const contacts = [
