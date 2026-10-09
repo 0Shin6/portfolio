@@ -62,30 +62,27 @@
 
     <!-- Compétences -->
     <section id="skills" class="reveal">
-      <h2>Compétences</h2>
+      <h2>Mes compétences</h2>
 
-      <template v-for="category in skillCategories" :key="category.title">
-        <h3>{{ category.title }}</h3>
-        <div class="skills-row">
-          <div
-            v-for="skill in category.skills"
-            :key="skill.name"
-            class="skill"
-          >
-            <img :src="'/' + skill.img" :alt="skill.name + ' Logo'">
-            <span>{{ skill.name }}</span>
-          </div>
-        </div>
-      </template>
-
-      <h3>Soft-skills</h3>
-      <div class="skill-row">
-        <div
-          v-for="soft in softSkills"
-          :key="soft"
-          class="soft-skill"
+      <div class="skills-tabs">
+        <button 
+          v-for="category in skillCategories" 
+          :key="category.title"
+          :class="['skill-tab', { active: activeSkillCategory === category.title }]"
+          @click="activeSkillCategory = category.title"
         >
-          <span>{{ soft }}</span>
+          {{ category.title }}
+        </button>
+      </div>
+
+      <div class="skills-grid">
+        <div
+          v-for="skill in currentSkills"
+          :key="skill.name + Math.random()"
+          class="skill-card"
+        >
+          <img :src="'/' + skill.img" :alt="skill.name + ' Logo'" class="skill-icon">
+          <span>{{ skill.name }}</span>
         </div>
       </div>
     </section>
@@ -140,7 +137,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted, watch } from 'vue';
+import { ref, onMounted, onUnmounted, watch, computed } from 'vue';
 
 // État réactif
 const isLightTheme = ref(false);
@@ -176,17 +173,74 @@ const experiences = [
   { date: '2021 - 2024', company: 'Lycée Max Linder', role: 'Baccalauréat Général', detail: 'Mathématique - NSI', logoClass: 'logo-lycee', logo: 'img/lycee.png', link: '#', linkLabel: 'Vous souhaitez me contacter ?' }
 ];
 
+const activeSkillCategory = ref('Front-end');
+
 const skillCategories = [
-  { title: 'Front-end', skills: [{ name: 'HTML', img: 'img/html.png' }, { name: 'CSS', img: 'img/css.png' }, { name: 'JavaScript', img: 'img/js.png' }] },
-  { title: 'Back-end', skills: [{ name: 'Python', img: 'img/python.png' }, { name: 'Java', img: 'img/java.png' }, { name: 'Rust', img: 'img/rust.png' }, { name: 'C++', img: 'img/cpp.png' }] },
-  { title: 'Réseaux', skills: [{ name: 'DHCP - DNS - Routage - SSH - FTP - iptables - IPv4', img: 'img/reseau.png' }] },
-  { title: 'Langues', skills: [{ name: 'Anglais - Avancé', img: 'img/uk.png' }, { name: 'Espagnol - Notions', img: 'img/spain.png' }] },
-  { title: 'Logiciels', skills: [{ name: 'VSCode', img: 'img/VSC.png' }, { name: 'Eclipse IDE', img: 'img/eclipse.png' }, { name: 'IntelliJ IDEA', img: 'img/intellij.png' }, { name: 'Android Studio', img: 'img/android-studio.png' }, { name: 'Figma', img: 'img/Figma.png' }, { name: 'Terminal', img: 'img/terminal.png' }, { name: 'Docker', img: 'img/Docker.png' }] },
-  { title: 'Frameworks', skills: [{ name: 'Kathara', img: 'img/kathara.png' }, { name: 'VueJS', img: 'img/Vue.png' }] },
-  { title: 'Base de données', skills: [{ name: 'mySQL', img: 'img/mySQL.png' }, { name: 'Mongo DB', img: 'img/mongodb.png' }, { name: 'SQLite', img: 'img/sqlite.png' }, { name: 'mariaDB', img: 'img/mariadb.png' }] }
+  { 
+    title: 'Front-end', 
+    skills: [
+      { name: 'HTML', img: 'img/html.svg' },
+      { name: 'CSS', img: 'img/css.svg' },
+      { name: 'JavaScript', img: 'img/javascript.svg' },
+      { name: 'XAML', img: 'img/vuejs.svg' },
+      { name: 'React', img: 'img/react.svg' },
+      { name: 'VueJS', img: 'img/vuejs.svg' },
+      { name: 'Twig', img: 'img/twig.svg' },
+      { name: 'Tailwind CSS', img: 'img/tailwind css.svg' },
+    ]
+  },
+  { 
+    title: 'Back-end', 
+    skills: [
+      { name: 'Python', img: 'img/reseau.png' },
+      { name: 'C++', img: 'img/reseau.png' },
+      { name: 'C#', img: 'img/reseau.png' },
+      { name: 'PhP', img: 'img/reseau.png' },
+      { name: 'Symfony', img: 'img/vuejs.svg' },
+      { name: 'TypeScript', img: 'img/reseau.png' }
+    ]
+  },
+  { 
+    title: 'Base de donnée', 
+    skills: [
+      { name: 'SQL', img: 'img/reseau.png' },
+      { name: 'NoSQL', img: 'img/reseau.png' },
+    ]
+  },
+  { 
+    title: 'Soft-skills', 
+    skills: [
+      { name: 'Anglais - Maîtrise', img: 'img/reseau.png' },
+      { name: 'Espagnol - Notions', img: 'img/reseau.png' },
+      { name: 'Travail d’équipe', img: 'img/reseau.png' },
+      { name: 'Communication', img: 'img/reseau.png' },
+      { name: 'Qualité de code', img: 'img/reseau.png' },
+      { name: 'Persévérance', img: 'img/reseau.png' },
+      { name: 'Gestion du stress', img: 'img/reseau.png' },
+      { name: 'Soif d\'apprendre', img: 'img/reseau.png' }
+    ]
+  },
+
+  { 
+    title: 'Logiciels', 
+    skills: [
+      { name: 'Visual Studio Code', img: 'img/reseau.png' },
+      { name: 'Figma', img: 'img/reseau.png' },
+      { name: 'IntelliJ', img: 'img/reseau.png' },
+      { name: 'Rider', img: 'img/reseau.png' },
+      { name: 'IntelliJ', img: 'img/reseau.png' },
+      { name: 'Android Studio', img: 'img/reseau.png' },
+      { name: 'Docker', img: 'img/reseau.png' },
+      { name: 'VPS', img: 'img/reseau.png' },
+      { name: 'Git', img: 'img/reseau.png' }
+    ]
+  }
 ];
 
-const softSkills = ['Travail d’équipe', 'Soif d’apprendre', 'Force de proposition', 'Qualité de code', 'Gestion du stress', 'Rigueur', 'Communication', 'Résolution des problèmes', 'Autodidacte'];
+const currentSkills = computed(() => {
+  const category = skillCategories.find(c => c.title === activeSkillCategory.value);
+  return category ? category.skills : [];
+});
 
 const projects = [
   { title: 'RobyBot', description: 'Bot Discord en python avec une base de donnée sqlite pour le serveur Robynet', skills: 'Python, Discord API, SQLite, Resolution de problèmes, soif d\'apprendre, VScode', url: 'https://github.com/0Shin6/roleby.git' },
