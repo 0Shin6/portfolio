@@ -81,7 +81,7 @@
           :key="skill.name + Math.random()"
           class="skill-card"
         >
-          <img :src="'/' + skill.img" :alt="skill.name + ' Logo'" class="skill-icon">
+          <img :src="'/' + skill.img" :alt="skill.name + ' Logo'" class="skill-icon" :style="skill.iconStyle">
           <span>{{ skill.name }}</span>
         </div>
       </div>
@@ -172,9 +172,9 @@ const aboutParagraphs = [
 ];
 
 const experiences = [
-  { date: 'Avril - Juin 2026', company: 'Conscentia', role: 'Stage – Développeur Web & mobile', logoClass: 'logo-owl', logo: 'img/conscientia.png', link: '#', linkLabel: 'Découvrir Conscentia' },
+  { date: 'Avril - Juin 2026', company: 'Conscientia', role: 'Stage – Développeur Web & mobile', logoClass: 'logo-owl', logo: 'img/conscientia.svg', link: '#', linkLabel: 'Découvrir Conscientia' },
   { date: '2024 -', company: 'IUT du Limousin', role: 'BUT informatique', logoClass: 'logo-iut', logo: 'img/iut.png', link: '#', linkLabel: 'Découvrir mes projets universitaires' },
-  { date: '2021 - 2024', company: 'Lycée Max Linder', role: 'Baccalauréat Général', detail: 'Mathématique - NSI', logoClass: 'logo-lycee', logo: 'img/lycee.png', link: '#', linkLabel: 'Vous souhaitez me contacter ?' }
+  { date: '2021 - 2024', company: 'Lycée Max Linder', role: 'Baccalauréat Général', detail: 'Mathématique - NSI', logoClass: 'logo-lycee', logo: 'img/maxlinder.svg', link: '#', linkLabel: 'Vous souhaitez me contacter ?' }
 ];
 
 const activeSkillCategory = ref('Front-end');
@@ -185,30 +185,30 @@ const skillCategories = [
     skills: [
       { name: 'HTML', img: 'img/html.svg' },
       { name: 'CSS', img: 'img/css.svg' },
-      { name: 'JavaScript', img: 'img/javascript.svg' },
-      { name: 'XAML', img: 'img/vuejs.svg' },
+      { name: 'JavaScript', img: 'img/js.svg' },
+      { name: 'XAML', img: 'img/xaml.svg' },
       { name: 'React', img: 'img/react.svg' },
-      { name: 'VueJS', img: 'img/vuejs.svg' },
+      { name: 'VueJS', img: 'img/vue.svg' },
       { name: 'Twig', img: 'img/twig.svg' },
-      { name: 'Tailwind CSS', img: 'img/tailwind css.svg' },
+      { name: 'Tailwind CSS', img: 'img/tailwind.svg' },
     ]
   },
   { 
     title: 'Back-end', 
     skills: [
-      { name: 'Python', img: 'img/reseau.png' },
-      { name: 'C++', img: 'img/reseau.png' },
-      { name: 'C#', img: 'img/reseau.png' },
-      { name: 'PhP', img: 'img/reseau.png' },
-      { name: 'Symfony', img: 'img/vuejs.svg' },
-      { name: 'TypeScript', img: 'img/reseau.png' }
+      { name: 'Python', img: 'img/python.svg' },
+      { name: 'C++', img: 'img/cpp.svg' },
+      { name: 'C#', img: 'img/cs.svg' },
+      { name: 'PhP', img: 'img/php.svg' },
+      { name: 'Symfony', img: 'img/symfony.svg' },
+      { name: 'TypeScript', img: 'img/ts.svg' }
     ]
   },
   { 
     title: 'Base de donnée', 
     skills: [
-      { name: 'SQL', img: 'img/reseau.png' },
-      { name: 'NoSQL', img: 'img/reseau.png' },
+      { name: 'SQL', img: 'img/sql.svg' },
+      { name: 'NoSQL', img: 'img/nosql.svg', iconStyle: 'transform: scale(2.5);' },
     ]
   },
   { 
@@ -228,15 +228,14 @@ const skillCategories = [
   { 
     title: 'Logiciels', 
     skills: [
-      { name: 'Visual Studio Code', img: 'img/reseau.png' },
-      { name: 'Figma', img: 'img/reseau.png' },
-      { name: 'IntelliJ', img: 'img/reseau.png' },
-      { name: 'Rider', img: 'img/reseau.png' },
-      { name: 'IntelliJ', img: 'img/reseau.png' },
-      { name: 'Android Studio', img: 'img/reseau.png' },
-      { name: 'Docker', img: 'img/reseau.png' },
+      { name: 'VS Code', img: 'img/vscode.svg' },
+      { name: 'Figma', img: 'img/figma.svg' },
+      { name: 'IntelliJ', img: 'img/intellij.svg' },
+      { name: 'Rider', img: 'img/rider.svg' },
+      { name: 'Android Studio', img: 'img/android_studio.svg' },
+      { name: 'Docker', img: 'img/docker.svg' },
       { name: 'VPS', img: 'img/reseau.png' },
-      { name: 'Git', img: 'img/reseau.png' }
+      { name: 'Git', img: 'img/git.svg' }
     ]
   }
 ];
@@ -250,9 +249,9 @@ const projects = [
   { title: 'Conscientia', label: 'Découvrir conscientia →', image: 'img/card_conscientia.svg', url: '#', gradient: ['#4B5ABE', '#26328D'] },
   { title: 'LowSens', label: 'Découvrir LowSens →', image: 'img/card_lowsens.svg', url: 'https://github.com/0Shin6/Team-sens', gradient: ['#8318FE', '#5100AE'] },
   { title: 'Appogix', label: 'Découvrir Appogix →', image: 'img/card_appogix.svg', url: '#', gradient: ['#B8860B', '#DAA520'] },
-  { title: 'Uniliste', label: 'Découvrir Uniliste →', image: 'img/card_uniliste.svg', url: 'https://github.com/0Shin6/soundPulse', gradient: ['#FF0000', '#8B0000'] },
+  { title: 'Uniliste', label: 'Découvrir Uniliste →', image: 'img/card_uniliste.svg', url: 'https://github.com/0Shin6/soundPulse', gradient: ['#D43545', '#C70215'] },
   { title: 'Flame', label: 'Découvrir Flame →', image: 'img/card_flame.svg', url: 'https://github.com/0Shin6/Flame.git²N', gradient: ['#B736FD', '#8203C6'] },
-  { title: 'USSD', label: 'Découvrir USSD →', image: 'img/card_ussd.svg', url: '#', gradient: ['#8B0000', '#550000'] }
+  { title: 'USSD', label: 'Découvrir USSD →', image: 'img/card_ussd.svg', url: '#', gradient: ['#CB0101', '#880101'] }
 ];
 
 const contacts = [
