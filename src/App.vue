@@ -110,28 +110,48 @@
     </section>
 
     <!-- Contact + CV -->
-    <section class="bottom-section reveal">
-      <div id="contact">
-        <h2>Me contacter</h2>
-        <div class="contact-list">
-          <a
+    <section id="contact" class="reveal">
+      <h2>Me contacter</h2>
+      <div class="contact-container">
+        <!-- Colonne gauche : Cartes de contact -->
+        <div class="contact-cards-list">
+          <div
             v-for="contact in contacts"
-            :key="contact.label"
-            :href="contact.url"
-            target="_blank"
+            :key="contact.type"
+            class="contact-card"
           >
-            <img :src="'/' + contact.img" :alt="'Logo ' + contact.label">
-            <span>{{ contact.label }}</span>
+            <div class="contact-icon-box">
+              <img :src="'/' + contact.img" :alt="contact.type" class="contact-icon" />
+            </div>
+            <div class="contact-info">
+              <span class="contact-type">{{ contact.type }}</span>
+              <span class="contact-value">{{ contact.value }}</span>
+            </div>
+            <a
+              :href="contact.url"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="contact-btn"
+            >
+              {{ contact.btnText }}
+            </a>
+          </div>
+        </div>
+
+        <!-- Colonne droite : Preview CV + Téléchargement -->
+        <div class="cv-card">
+          <img src="/img/cv.svg" alt="Aperçu du CV" class="cv-img" />
+          <a
+            href="/doc/CV_Granier_Mathis.pdf"
+            download="CV_Granier_Mathis.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="cv-btn"
+          >
+            Télécharger mon CV <span>&rarr;</span>
           </a>
         </div>
       </div>
-
-      <a href="/doc/CV_GRANIER_Mathis.pdf" class="cv-box" target="_blank" download>
-        <div class="cv-content">
-          <h3>Télécharger mon CV</h3>
-          <p>Format PDF</p>
-        </div>
-      </a>
     </section>
 
     <footer>
@@ -172,9 +192,9 @@ const aboutParagraphs = [
 ];
 
 const experiences = [
-  { date: 'Avril - Juin 2026', company: 'Conscientia', role: 'Stage – Développeur Web & mobile', logoClass: 'logo-owl', logo: 'img/conscientia.svg', link: '#', linkLabel: 'Découvrir Conscientia' },
+  { date: 'Avril - Juin 2026', company: 'Conscientia', role: 'Stage – Développeur Web & mobile', logoClass: 'logo-owl', logo: 'img/conscientia.svg?v=2', link: '#', linkLabel: 'Découvrir Conscientia' },
   { date: '2024 -', company: 'IUT du Limousin', role: 'BUT informatique', logoClass: 'logo-iut', logo: 'img/iut.png', link: '#', linkLabel: 'Découvrir mes projets universitaires' },
-  { date: '2021 - 2024', company: 'Lycée Max Linder', role: 'Baccalauréat Général', detail: 'Mathématique - NSI', logoClass: 'logo-lycee', logo: 'img/maxlinder.svg', link: '#', linkLabel: 'Vous souhaitez me contacter ?' }
+  { date: '2021 - 2024', company: 'Lycée Max Linder', role: 'Baccalauréat Général', detail: 'Mathématique - NSI', logoClass: 'logo-lycee', logo: 'img/maxlinder.svg?v=2', link: '#', linkLabel: 'Vous souhaitez me contacter ?' }
 ];
 
 const activeSkillCategory = ref('Front-end');
@@ -255,10 +275,34 @@ const projects = [
 ];
 
 const contacts = [
-  { label: '.shin60', url: 'https://discord.com/app/', img: 'img/discord.png' },
-  { label: 'Mathis Granier', url: 'https://www.linkedin.com/in/mathis-granier-06a460360/', img: 'img/linkedin.png' },
-  { label: 'mathis.granier@etu.unilim.fr', url: 'mailto:mathis.granier@etu.unilim.fr', img: 'img/mail.png' },
-  { label: '0Shin6', url: 'https://github.com/0Shin6', img: 'img/github.png' }
+  { 
+    type: 'Discord', 
+    value: '.shin60', 
+    btnText: 'Envoyer un message', 
+    url: 'https://discord.com/app/', 
+    img: 'img/discord.svg?v=2' 
+  },
+  { 
+    type: 'Email', 
+    value: 'mathis.granier.pro@gmail.com', 
+    btnText: 'Envoyer un email', 
+    url: 'mailto:mathis.granier.pro@gmail.com', 
+    img: 'img/mail.svg' 
+  },
+  { 
+    type: 'LinkedIn', 
+    value: 'mathis.granier.pro@gmail.com', 
+    btnText: 'Aller sur LinkedIn', 
+    url: 'https://www.linkedin.com/in/mathis-granier-06a460360/', 
+    img: 'img/linkedin.svg' 
+  },
+  { 
+    type: 'GitHub', 
+    value: '0Shin6', 
+    btnText: 'Aller sur GitHub', 
+    url: 'https://github.com/0Shin6', 
+    img: 'img/github.svg' 
+  }
 ];
 
 // Méthodes
