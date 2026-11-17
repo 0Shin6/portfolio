@@ -18,7 +18,8 @@
 
     <!-- Header -->
     <header class="reveal active">
-      <h1>Bienvenue sur mon portfolio</h1>
+      <h1>Mathis Granier</h1>
+      <h2 class="header-subtitle">Développeur Web Full-Stack</h2> 
     </header>
 
     <!-- À propos -->
@@ -95,7 +96,6 @@
           v-for="project in projects"
           :key="project.title"
           :href="project.url"
-          target="_blank"
           class="project-card"
         >
           <img :src="'/' + project.image" :alt="project.title" class="project-img">
@@ -186,13 +186,12 @@ const navLinks = [
 ];
 
 const aboutParagraphs = [
-  "Étudiant en 3ᵉ année de BUT Informatique, j'ai une réelle curiosité technique pour la conception d'outils numériques à la fois fiables, accessibles et performants. Mon approche repose sur une démarche de comprendre le fonctionnement interne des technologies pour créer des solutions utiles qui répondent à de véritables besoins.",
-  "Polyvalent, j'interviens sur l'ensemble du cycle de développement, du front-end au back-end, jusqu'à l'administration système et réseau. Qu'il s'agisse de concevoir et déployer des sites web ou de déployer des logiciels conteneurisés avec Docker, j'aime mener des projets de bout en bout en veillant à la cohérence de l'architecture du projet.",
-  "En parallèle du code, je fais beaucoup de sport notamment le cyclisme, la course à pied et la musculation. La musique occupent une grande importance dans mon quotidien. Ces activités contribuent directement à mon équilibre physique et mental, tout en développant une rigueur et une endurance que je réinvestis naturellement dans chacun de mes projets."
+  "Étudiant en 3ᵉ année de BUT Informatique, je conçois et déploie des applications web du design au déploiement. J'ai toujours été curieux de comprendre le fonctionnement interne des technologies, j'aime concevoir les interfaces, structurer des API et optimiser l'expérience utilisateur.",
+  "Ayant un profil polyvalent, je travaille sur l'ensemble du cycle de développement allant de la création d'interfaces dynamiques au développement back-end, jusqu'à l'administration système et au déploiement du site via un VPS. En parallèle du code, je pratique régulièrement du sport d'endurance et de la musique m'apporte au quotidien rigueur, discipline et persévérance dans la réalisation de mes projets."
 ];
 
 const experiences = [
-  { date: 'Avril - Juin 2026', company: 'Conscientia', role: 'Stage – Développeur Web & mobile', logoClass: 'logo-owl', logo: 'img/conscientia.svg?v=2', link: '#', linkLabel: 'Découvrir Conscientia' },
+  { date: 'Avril - Juin 2026', company: 'FinOwl AI', role: 'Stage – Développeur Web & mobile', logoClass: 'logo-owl', logo: 'img/conscientia.svg?v=2', link: '#', linkLabel: 'Découvrir Conscientia' },
   { date: '2024 -', company: 'IUT du Limousin', role: 'BUT informatique', logoClass: 'logo-iut', logo: 'img/iut.png', link: '#', linkLabel: 'Découvrir mes projets universitaires' },
   { date: '2021 - 2024', company: 'Lycée Max Linder', role: 'Baccalauréat Général', detail: 'Mathématique - NSI', logoClass: 'logo-lycee', logo: 'img/maxlinder.svg?v=2', link: '#', linkLabel: 'Vous souhaitez me contacter ?' }
 ];
@@ -267,11 +266,11 @@ const currentSkills = computed(() => {
 
 const projects = [
   { title: 'Conscientia', label: 'Découvrir conscientia →', image: 'img/card_conscientia.svg', url: '#', gradient: ['#4B5ABE', '#26328D'] },
-  { title: 'LowSens', label: 'Découvrir LowSens →', image: 'img/card_lowsens.svg', url: 'https://github.com/0Shin6/Team-sens', gradient: ['#8318FE', '#5100AE'] },
+  { title: 'LowSens', label: 'Découvrir LowSens →', image: 'img/card_lowsens.svg', url: '#/lowsens', gradient: ['#8318FE', '#5100AE'] },
   { title: 'Appogix', label: 'Découvrir Appogix →', image: 'img/card_appogix.svg', url: '#', gradient: ['#B8860B', '#DAA520'] },
   { title: 'Uniliste', label: 'Découvrir Uniliste →', image: 'img/card_uniliste.svg', url: 'https://github.com/0Shin6/soundPulse', gradient: ['#D43545', '#C70215'] },
   { title: 'Flame', label: 'Découvrir Flame →', image: 'img/card_flame.svg', url: 'https://github.com/0Shin6/Flame.git²N', gradient: ['#B736FD', '#8203C6'] },
-  { title: 'USSD', label: 'Découvrir USSD →', image: 'img/card_ussd.svg', url: '#', gradient: ['#CB0101', '#880101'] }
+  { title: 'USSD', label: 'Découvrir USSD →', image: 'img/card_ussd.svg', url: '#/ussd', gradient: ['#CB0101', '#880101'] }
 ];
 
 const contacts = [

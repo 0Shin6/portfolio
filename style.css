@@ -182,9 +182,17 @@ header p {
   white-space: nowrap;
 }
 header h1 {
-  margin: 50px;
+  margin: 20px 0 10px;
   font-size: 54px;
   line-height: 1.1;
+}
+header .header-subtitle {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 500;
+  border-bottom: none;
+  color: var(--text-light);
+  letter-spacing: 0.5px;
 }
 header::after {
   content: "";
@@ -225,7 +233,7 @@ section {
 }
 .about-content {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 334px;
+  grid-template-columns: minmax(0, 1fr) 250px;
   align-items: center; max-width: 100vw; overflow-x: hidden;
   gap: 40px;
 }
@@ -784,6 +792,10 @@ footer {
   }
   header h1 {
     font-size: 38px;
+    margin: 15px 0 8px;
+  }
+  header .header-subtitle {
+    font-size: 20px;
   }
   header img {
     width: 90px; 
