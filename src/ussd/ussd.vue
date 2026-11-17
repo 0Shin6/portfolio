@@ -91,11 +91,11 @@
         <div class="ussd-links">
           <div class="ussd-link-item">
             <span>Dépôt GitHub :</span>
-            <a :href="repoUrl" target="_blank" rel="noopener noreferrer" class="ussd-button">Qui sont nos éducateurs ? <span>→</span></a>
+            <a :href="repoUrl" target="_blank" rel="noopener noreferrer" class="ussd-button">Accéder au dépôt <span>→</span></a>
           </div>
           <div class="ussd-link-item">
             <span>Documentation :</span>
-            <a :href="docUrl" target="_blank" rel="noopener noreferrer" class="ussd-button">Qui sont nos éducateurs ? <span>→</span></a>
+            <a :href="docUrl" target="_blank" rel="noopener noreferrer" class="ussd-button">Accéder à la documentation <span>→</span></a>
           </div>
         </div>
       </section>
