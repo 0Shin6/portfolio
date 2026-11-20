@@ -7,11 +7,13 @@ import { ref, computed, onMounted, onUnmounted } from 'vue';
 import App from './App.vue';
 import LowSens from './lowsens/LowSens.vue';
 import USSD from './ussd/ussd.vue';
+import Appogix from './appogix/appogix.vue';
 
 // Routage minimal basé sur le hash (#/lowsens)
 const routes = {
   '#/lowsens': LowSens,
-  '#/ussd': USSD
+  '#/ussd': USSD,
+  '#/appogix': Appogix
 };
 
 const hash = ref(window.location.hash);

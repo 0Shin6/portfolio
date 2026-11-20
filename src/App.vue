@@ -267,7 +267,7 @@ const currentSkills = computed(() => {
 const projects = [
   { title: 'Conscientia', label: 'Découvrir conscientia →', image: 'img/card_conscientia.svg', url: '#', gradient: ['#4B5ABE', '#26328D'] },
   { title: 'LowSens', label: 'Découvrir LowSens →', image: 'img/card_lowsens.svg', url: '#/lowsens', gradient: ['#8318FE', '#5100AE'] },
-  { title: 'Appogix', label: 'Découvrir Appogix →', image: 'img/card_appogix.svg', url: '#', gradient: ['#B8860B', '#DAA520'] },
+  { title: 'Appogix', label: 'Découvrir Appogix →', image: 'img/card_appogix.svg', url: '#/appogix', gradient: ['#B8860B', '#DAA520'] },
   { title: 'Uniliste', label: 'Découvrir Uniliste →', image: 'img/card_uniliste.svg', url: 'https://github.com/0Shin6/soundPulse', gradient: ['#D43545', '#C70215'] },
   { title: 'Flame', label: 'Découvrir Flame →', image: 'img/card_flame.svg', url: 'https://github.com/0Shin6/Flame.git²N', gradient: ['#B736FD', '#8203C6'] },
   { title: 'USSD', label: 'Découvrir USSD →', image: 'img/card_ussd.svg', url: '#/ussd', gradient: ['#CB0101', '#880101'] }
